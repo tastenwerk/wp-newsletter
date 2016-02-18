@@ -1,0 +1,64 @@
+#igft_post-list li{
+  border: 1px solid #888;
+  padding: 20px 20px 0px 20px;
+}
+
+.igft-title{
+  font-size: 25px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.igft-post-id{
+  display: none;
+}
+
+#igft_post-list .editor{
+  display: none;
+}
+
+#igft_post-list .toggle-editor:hover{
+  cursor: pointer;
+}
+
+#igft_post-list .toggle-editor{
+  position: relative;    
+  width: 250px;
+}
+
+.arrow-down{
+  margin-top: 13px;
+  margin-left: -24px;
+}
+
+body #igft_post-list .save-igft-post{
+  display: none;    
+  width: 500px;
+  text-align: center;
+  margin: 10px auto;
+  font-size: 20px;
+  height: 50px;
+  padding-top: 10px;
+}
+
+.editor-text{
+  position: absolute;
+  top: 2px;
+  left: 25px;
+  font-size: 20px;
+}
+
+.menu-select{
+  margin-top: -60px;
+  margin-left: 270px;
+}
+
+.submenu-select{
+  margin-top: -60px;
+  margin-left: 10px;
+}
+
+.igft-position{
+  float: right;
+  margin-top: -40px;
+}

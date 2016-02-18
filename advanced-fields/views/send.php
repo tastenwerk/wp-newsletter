@@ -1,0 +1,1 @@
+<div class="button button-primary button-large" id="send-newsletter" post-id=<?= $post->ID ?> >Send Newsletter</div>
