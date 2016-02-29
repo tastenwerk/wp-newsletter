@@ -62,3 +62,7 @@ body #igft_post-list .save-igft-post{
   float: right;
   margin-top: -40px;
 }
+
+#publishing-action{
+  /*display: none;*/
+}
