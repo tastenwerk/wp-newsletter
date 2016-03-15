@@ -51,6 +51,7 @@
           <div class="igft-position">
             <span> Position: </span>
             <input type="text" size='1' style="text-align: center;" value=<?= $index ?> def-value=<?= $index ?> >
+            <div class="button change-position" igft-post-id="<?= $igft_post_id ?>" post-id=<?= $post->ID ?>>Position ändern</div>
           </div>
         </div>
         <div class="editor">

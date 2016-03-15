@@ -31,7 +31,12 @@ class NewsletterAjax{
     $new_pos = $_POST['new_pos'];
     $old_pos = $_POST['old_pos'];
     $igft_posts = get_post_meta( $newsletter_id, 'newsletter_igft_posts', TRUE );
+    print_r( $old_pos." and ".$new_pos );
+    echo "MOVING";
+    print_r(  $igft_posts );
     $this->moveElement( $igft_posts, $old_pos, $new_pos );
+    echo "AFTER";
+    print_r(  $igft_posts );
     update_post_meta( $newsletter_id, 'newsletter_igft_posts', $igft_posts );
     // echo "HERE!";
     die();
@@ -115,6 +120,8 @@ class NewsletterAjax{
       // $content = $content."<a style='color: #EF0808; font-weight: bold;' href='#".$index."' >".$post->post_title."</a><br>";
         $index++;
       }
+
+      $content = $content.'<br><a style="font-weight:bold; padding-top: 20px" href=#impressum>Impressum</a>';
       $content = $content.$hr;
 
     // Content
@@ -126,6 +133,20 @@ class NewsletterAjax{
         $content = $content.$hr;
         $index++;
       }
+
+      $content = $content."<div style='font-size:19px;' id=impressum>Impressum</div>";
+      $content = $content."
+          Newsletter der IG Freie Theaterarbeit<br>
+          IG Freie Theaterarbeit<br>
+          <a href='www.freietheater.at'>www.freietheater.at</a><br><br>
+
+          Redaktion: Katharina Ganser<br><br>
+
+          Für den Inhalt übernimmt die IG Freie Theaterarbeit keine Gewähr.<br>
+          Wenn Sie selbst Informationen und Nachrichten an die Mitglieder dieser Liste weitergeben wollen, schicken Sie diese bitte per e-mail an 
+          <a href='mailto:office@freietheater.at'>office@freietheater.at</a><br><br>";
+      $content = $content."<a href=#>Nach oben</a>";
+
 
       $footer = '</body></html>';
       $content = $content.$footer;

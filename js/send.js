@@ -64,7 +64,31 @@ $(document).on('click', '#igft_post-list .toggle-editor', function(){
   $(this).parent().parent().find('.editor').attr('height', '300px');
 });
 
-$(document).on('click', '.save-igft-post', function(){
+
+$(document).on('click', '.change-position', function() {
+  $current = $(this).parent();
+  post_id = $(this).attr('post-id');
+  // igft_post_id = $current.attr('igft-post-id');
+  // $current.parent().find('.igft-post-id').val( data['id']  );
+  $position = $current.parent().find('.igft-position input');
+  console.log( $position, $position.val(), $position.attr('def-value') );
+  $.ajax({
+    url: ajaxpagination.ajaxurl,
+    type: 'post',
+    data: {
+      action: 'new_igft_position',
+      post_id: post_id,
+      new_pos: $position.val()-1,
+      old_pos: $position.attr('def-value')-1
+    },
+    success: function( result ) {
+      location.reload();
+    }
+  });
+
+}); 
+
+$(document).on('click', '.save-igft-post', function() {
   $current = $(this);
   title = $current.parent().find('.igft-title').val();
   igft_post_id = $current.attr('igft-post-id');
@@ -96,21 +120,21 @@ $(document).on('click', '.save-igft-post', function(){
     success: function( result ) {
       data = JSON.parse( result );
       $current.parent().find('.igft-post-id').val( data['id']  );
-      $position = $current.parent().find('.igft-position input');
-      console.log( $position, $position.val(), $position.attr('def-value') );
-      $.ajax({
-        url: ajaxpagination.ajaxurl,
-        type: 'post',
-        data: {
-          action: 'new_igft_position',
-          post_id: $current.attr('post-id'),
-          new_pos: $position.val()-1,
-          old_pos: $position.attr('def-value')-1
-        },
-        success: function( result ) {
+      // $position = $current.parent().find('.igft-position input');
+      // console.log( $position, $position.val(), $position.attr('def-value') );
+      // $.ajax({
+      //   url: ajaxpagination.ajaxurl,
+      //   type: 'post',
+      //   data: {
+      //     action: 'new_igft_position',
+      //     post_id: $current.attr('post-id'),
+      //     new_pos: $position.val()-1,
+      //     old_pos: $position.attr('def-value')-1
+      //   },
+      //   success: function( result ) {
           $('#publishing-action input[name="save"]').click();
-        }
-      });
+      //   }
+      // });
         // $('#publishing-action input[name="save"]').click();
       }
     });
