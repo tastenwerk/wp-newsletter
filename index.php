@@ -62,6 +62,38 @@ class Tkmailer{
         ), // Add Category and Post Tags support,
         ));
 
+      // Add new taxonomy, NOT hierarchical (like tags)
+        $labels = array(
+          'name'                       => _x( 'labels', 'taxonomy general name' ),
+          'singular_name'              => _x( 'label', 'taxonomy singular name' ),
+          'search_items'               => __( 'Search labels' ),
+          'popular_items'              => __( 'Popular labels' ),
+          'all_items'                  => __( 'All labels' ),
+          'parent_item'                => null,
+          'parent_item_colon'          => null,
+          'edit_item'                  => __( 'Edit label' ),
+          'update_item'                => __( 'Update label' ),
+          'add_new_item'               => __( 'Add New label' ),
+          'new_item_name'              => __( 'New label Name' ),
+          'separate_items_with_commas' => __( 'Separate label with commas' ),
+          'add_or_remove_items'        => __( 'Add or remove label' ),
+          'choose_from_most_used'      => __( 'Choose from the most used label' ),
+          'not_found'                  => __( 'No label found.' ),
+          'menu_name'                  => __( 'labels' ),
+        );
+
+        $args = array(
+          'hierarchical'          => false,
+          'labels'                => $labels,
+          'show_ui'               => true,
+          'show_admin_column'     => true,
+          'update_count_callback' => '_update_post_term_count',
+          'query_var'             => true,
+          'rewrite'               => array( 'slug' => 'post_tag' ),
+        );
+
+        register_taxonomy( 'post_tag', 'newsletter', $args );
+
     }
 }
 

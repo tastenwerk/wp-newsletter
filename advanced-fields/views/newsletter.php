@@ -26,11 +26,12 @@
             <span class="dashicons dashicons-arrow-down-alt2 arrow-down"></span>
             <span class="editor-text"> Editor aus-/ einklappen </span>
           </div>
-          <?php $menus = get_terms( 'menu' );
+          <?php $menus = get_terms( 'post_tag' );
+
 
             $cur_menu = wp_get_post_terms( $igft_post_id, 'menu', array("fields" => "slugs") )[0];
             $cur_submenu = wp_get_post_terms( $igft_post_id, 'submenu', array("fields" => "slugs") )[0];
-           // print_r($menus);?>
+           //print_r( get_terms('post_tag') );?>
           <select class="menu-select">
             <option value=""> Menü auswählen </option>
             <?php foreach($menus as $item) { ?>
