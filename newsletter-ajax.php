@@ -147,7 +147,6 @@ class NewsletterAjax{
           <a href='mailto:office@freietheater.at'>office@freietheater.at</a><br><br>";
       $content = $content."<a href=#>Nach oben</a>";
 
-
       $footer = '</body></html>';
       $content = $content.$footer;
 
